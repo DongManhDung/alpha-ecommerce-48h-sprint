@@ -19,7 +19,7 @@ export default function TopAnnouncementBar() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <div className="w-full bg-[#9b0b0b] text-white">
+    <div className="w-full bg-[#9b0b0b] text-white z-50 relative">
       <div className="relative mx-auto flex h-10 max-w-screen-xl items-center justify-center px-4">
         {/* Center text */}
         <p className="text-center text-xs font-semibold uppercase tracking-widest sm:text-sm">
