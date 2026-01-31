@@ -15,10 +15,13 @@ import BeckhamComparison from "./beckhamcomparison/BeckhamComparison";
 import PremiumCoreNutrition from "./premiumcorenutrition/PremiumCoreNutrition";
 import FaqSection from "./faqs/FAQs";
 
-export default function Body() {
+export default function Body({ selectedFormat, setSelectedFormat }) {
   return (
     <main>
-      <Hero />
+      <Hero 
+        selectedFormat={selectedFormat}
+        setSelectedFormat={setSelectedFormat}
+      />
       <ClinicalProvenSection />
       <ReviewsSection />
       <OrganSystemsSection />

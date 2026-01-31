@@ -1,10 +1,9 @@
 import { useState } from "react";
 
-export default function StickyAddToCartBar() {
-  const [selectedFormat, setSelectedFormat] = useState("jar"); // eslint-disable-line no-unused-vars 
+export default function StickyAddToCartBar({ selectedFormat = "jar" }) {
   const [selectedPlan, setSelectedPlan] = useState("90");
 
-  // Sync with main format selector (you can pass props from parent later)
+  // Sync with main format selector via props
   const formatInfo = {
     jar: {
       name: "Forever Jar",

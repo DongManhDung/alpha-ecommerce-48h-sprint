@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import HeroImage from "./image/HeroImage";
 import HeroContent from "./content/HeroContent";
 
-export default function Hero() {
-  const [selectedFormat, setSelectedFormat] = useState("jar");
+export default function Hero({ selectedFormat, setSelectedFormat }) {
   const [isSticky, setIsSticky] = useState(true);
   const heroRef = useRef(null);
   const contentRef = useRef(null);
