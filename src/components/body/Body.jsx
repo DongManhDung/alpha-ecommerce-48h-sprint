@@ -6,6 +6,7 @@ import SavingsSection from "./saving/SavingsSection";
 import ComparisonSection from "./comparison/ComparisonSection";
 import Pillars from "./pillar/Pillars";
 import TrustedExperts from "./trustexpert/TrustedExperts";
+import WhatsInsideBanner from "./whatinside/WhatsInsideBanner";
 
 export default function Body() {
   return (
@@ -18,6 +19,7 @@ export default function Body() {
       <ComparisonSection />
       <Pillars />
       <TrustedExperts />
+      <WhatsInsideBanner />
     </main>
   );
 }
