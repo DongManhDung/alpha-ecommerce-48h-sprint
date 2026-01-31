@@ -14,8 +14,7 @@ import HSAPayment from "./sections/HSAPayment";
 import ProductAccordion from "./sections/ProductAccordion";
 import AmbassadorCarousel from "./sections/AmbassadorCarousel";
 
-export default function HeroContent() {
-  const [selectedFormat, setSelectedFormat] = useState("jar");
+export default function HeroContent({ selectedFormat, setSelectedFormat }) {
   const [selectedPlan, setSelectedPlan] = useState("90");
 
   return (

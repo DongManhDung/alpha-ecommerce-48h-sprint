@@ -1,17 +1,46 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import MediaModal from "../content/sections/MediaModal";
 
-export default function HeroImage() {
+export default function HeroImage({ selectedFormat = "jar" }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFlashing, setIsFlashing] = useState(false);
   const thumbRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [startY, setStartY] = useState(0);
+  const previousFormatRef = useRef(selectedFormat);
+
+  // Handle format changes without direct setState in useEffect
+  useEffect(() => {
+    if (previousFormatRef.current !== selectedFormat) {
+      // Reset to first image when format changes
+      if (activeIndex !== 0) {
+        setActiveIndex(0);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }
+      
+      // Add flashing effect when format changes
+      setIsFlashing(true);
+      const timer = setTimeout(() => {
+        setIsFlashing(false);
+      }, 300);
+
+      previousFormatRef.current = selectedFormat;
+      return () => clearTimeout(timer);
+    }
+  }, [selectedFormat, activeIndex]);
+
+  // Define first image based on selected format
+  const getFirstImage = () => {
+    if (selectedFormat === "sachet") {
+      return "https://im8health.com/cdn/shop/files/PDP_07c659fc-2e80-4d58-a136-6d06961f00aa.jpg?v=1766566325&width=1946";
+    }
+    return "https://im8health.com/cdn/shop/files/PDP_060fbac6-1883-4c53-aae5-f791c68056a5.jpg?v=1766566335&width=823";
+  };
 
   const HERO_IMAGES = [
-    "https://im8health.com/cdn/shop/files/PDP_060fbac6-1883-4c53-aae5-f791c68056a5.jpg?v=1766566335&width=416",
-    "https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel01.jpg?v=1761040602&width=416",
+    getFirstImage(),
     "https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel02.jpg?v=1761042620&width=416",
     "https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel03.jpg?v=1761040602&width=416",
     "https://im8health.com/cdn/shop/files/pdp_essentials-sachet_carousel04.jpg?v=1761040602&width=324",
@@ -103,6 +132,8 @@ export default function HeroImage() {
         <div 
           className={`aspect-square w-full overflow-hidden rounded-2xl bg-[#f6e3d6] lg:aspect-[4/5] lg:h-[520px] lg:w-[520px] select-none transition-all duration-300 ${
             isDragging ? 'cursor-grabbing' : 'cursor-grab lg:cursor-pointer'
+          } ${
+            isFlashing ? 'animate-pulse bg-gradient-to-br from-[#f6e3d6] via-white to-[#f6e3d6] shadow-lg' : ''
           }`}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
@@ -116,7 +147,9 @@ export default function HeroImage() {
           <img
             src={HERO_IMAGES[activeIndex]}
             alt={`Product ${activeIndex + 1}`}
-            className="h-full w-full object-cover pointer-events-none transition-opacity duration-300 ease-in-out"
+            className={`h-full w-full object-cover pointer-events-none transition-all duration-300 ease-in-out ${
+              isFlashing ? 'brightness-110 scale-[1.02]' : ''
+            }`}
             draggable={false}
           />
         </div>

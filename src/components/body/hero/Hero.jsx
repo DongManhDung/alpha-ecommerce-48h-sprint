@@ -1,8 +1,9 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import HeroImage from "./image/HeroImage";
 import HeroContent from "./content/HeroContent";
 
 export default function Hero() {
+  const [selectedFormat, setSelectedFormat] = useState("jar");
   const [isSticky, setIsSticky] = useState(true);
   const heroRef = useRef(null);
   const contentRef = useRef(null);
@@ -13,22 +14,12 @@ export default function Hero() {
       if (!heroRef.current || !contentRef.current || !imageRef.current) return;
 
       const heroRect = heroRef.current.getBoundingClientRect();
-      const contentRect = contentRef.current.getBoundingClientRect();
-      const imageRect = imageRef.current.getBoundingClientRect();
       
-      // Tính toán khi nào bottom của HeroContent và HeroImage song song
-      // Khi HeroContent bottom <= HeroImage bottom + một khoảng dung sai nhỏ
-      const contentBottom = contentRect.bottom;
-      const imageBottom = imageRect.bottom;
-      const tolerance = 50; // Dung sai 50px
+      // Chỉ bỏ sticky khi toàn bộ Hero section đã scroll ra khỏi viewport, (bottom của hero <= 0) để HeroImage cùng cuộn lên với content
+      const heroFullyScrolledOut = heroRect.bottom <= 0;
       
-      const isContentAlignedWithImage = contentBottom <= imageBottom + tolerance;
-      
-      // Nếu Hero section đã scroll hết khỏi viewport
-      const heroFullyScrolled = heroRect.bottom <= 0;
-      
-      // Chỉ bỏ sticky khi content đã song song với image hoặc hero đã scroll hết
-      setIsSticky(!isContentAlignedWithImage && !heroFullyScrolled);
+      // Giữ sticky cho đến khi hero container hoàn toàn ra khỏi view. Lúc đó HeroImage sẽ cùng cuộn theo thay vì biến mất
+      setIsSticky(!heroFullyScrolledOut);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -51,10 +42,13 @@ export default function Hero() {
               : 'lg:relative'
           }`}
         >
-          <HeroImage />
+          <HeroImage selectedFormat={selectedFormat} />
         </div>
         <div ref={contentRef}>
-          <HeroContent />
+          <HeroContent 
+            selectedFormat={selectedFormat} 
+            setSelectedFormat={setSelectedFormat}
+          />
         </div>
       </div>
     </section>
