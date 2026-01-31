@@ -3,6 +3,7 @@ import ClinicalProvenSection from "./clinicalproven/ClinicalProvenSection";
 import ReviewsSection from "./review/ReviewsSection";
 import OrganSystemsSection from "./organsystem/OrganSystemsSection";
 import SavingsSection from "./saving/SavingsSection";
+import ComparisonSection from "./comparison/ComparisonSection";
 
 export default function Body() {
   return (
@@ -12,6 +13,7 @@ export default function Body() {
       <ReviewsSection />
       <OrganSystemsSection />
       <SavingsSection />
+      <ComparisonSection />
     </main>
   );
 }
