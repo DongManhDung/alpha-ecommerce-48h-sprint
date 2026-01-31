@@ -10,6 +10,7 @@ import WhatsInsideBanner from "./whatinside/WhatsInsideBanner";
 import HowToEnjoy from "./howtoenjoy/HowToEnjoy";
 import GetStartedIM8 from "./getstarted/GetStartedIM8";
 import AmbassadorsSection from "./ambassador/AmbassadorsSection";
+import ExpertsSection from "./experts/ExpertsSection";
 
 export default function Body() {
   return (
@@ -26,6 +27,7 @@ export default function Body() {
       <HowToEnjoy />
       <GetStartedIM8 />
       <AmbassadorsSection />
+      <ExpertsSection />
     </main>
   );
 }

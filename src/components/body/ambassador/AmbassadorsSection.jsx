@@ -163,7 +163,7 @@ export default function AmbassadorsSection() {
     if (!containerRef.current || isDragging.current) return;
     
     const container = containerRef.current;
-    const scrollStep = 1; // pixels per frame
+    const scrollStep = 0.5; // pixels per frame - slower speed
     
     container.scrollLeft += scrollStep;
     
@@ -220,7 +220,7 @@ export default function AmbassadorsSection() {
           onMouseLeave={onMouseLeave}
           onMouseMove={onMouseMove}
         >
-          {Array.from({ length: 10 }).map((_, index) =>
+          {Array.from({ length: 2 }).map((_, index) =>
             AMBASSADORS.map((item) => (
             <AmbassadorCard key={`${item.id}-${index}`} data={item} />
           )))}
