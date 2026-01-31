@@ -14,6 +14,9 @@ import {
   IconBooster,
   IconMetabolic,
   IconRenewal,
+  IconDosing,
+  IconFomulation,
+  IconPurity,
 } from "../../data/svgicon.jsx";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 
@@ -154,17 +157,17 @@ const LONGEVITY_FEATURES = [
   {
     title: "Therapeutic Dosing",
     desc: "Clinically relevant doses of key longevity ingredients like NMN and Spermidine.",
-    icon: IconFoundation,
+    icon: IconDosing,
   },
   {
     title: "Synergistic Formulation",
     desc: "Ingredients selected to work together to amplify cellular repair and renewal.",
-    icon: IconMetabolic,
+    icon: IconFomulation,
   },
   {
     title: "Premium Purity",
     desc: "Rigorous testing for purity and potency, free from fillers and artificial additives.",
-    icon: IconProtection,
+    icon: IconPurity,
   },
 ];
 
@@ -184,7 +187,16 @@ export default function Pillars() {
 
   return (
     <section className="min-h-screen bg-[#2A0506] text-[#7A0C14]">
-      <div className="relative bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#F3EADF] via-[#EAD6CC] to-[#2A0506]">
+      <div 
+        className="relative bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${
+            activeTab === "essentials"
+              ? "https://im8health.com/cdn/shop/files/Screenshot_2025-12-22_at_7.44.31_PM.png?v=1766404140&width=1200"
+              : "https://im8health.com/cdn/shop/files/Screenshot_2025-12-22_at_7.45.28_PM.png?v=1766404140&width=600"
+          })`
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 py-16">
           {/* HEADER */}
           <div className="text-center mb-20">
