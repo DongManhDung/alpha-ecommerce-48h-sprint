@@ -13,6 +13,7 @@ import AmbassadorsSection from "./ambassador/AmbassadorsSection";
 import ExpertsSection from "./experts/ExpertsSection";
 import BeckhamComparison from "./beckhamcomparison/BeckhamComparison";
 import PremiumCoreNutrition from "./premiumcorenutrition/PremiumCoreNutrition";
+import FaqSection from "./faqs/FAQs";
 
 export default function Body() {
   return (
@@ -32,6 +33,7 @@ export default function Body() {
       <ExpertsSection />
       <BeckhamComparison />
       <PremiumCoreNutrition />
+      <FaqSection />
     </main>
   );
 }
