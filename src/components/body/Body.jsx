@@ -4,6 +4,7 @@ import ReviewsSection from "./review/ReviewsSection";
 import OrganSystemsSection from "./organsystem/OrganSystemsSection";
 import SavingsSection from "./saving/SavingsSection";
 import ComparisonSection from "./comparison/ComparisonSection";
+import Pillars from "./pillar/Pillars";
 
 export default function Body() {
   return (
@@ -14,6 +15,7 @@ export default function Body() {
       <OrganSystemsSection />
       <SavingsSection />
       <ComparisonSection />
+      <Pillars />
     </main>
   );
 }
