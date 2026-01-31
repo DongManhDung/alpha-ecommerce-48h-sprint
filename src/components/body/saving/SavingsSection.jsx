@@ -12,8 +12,30 @@ const breakdown = [
 
 export default function SavingsSection() {
   return (
-    <section className="bg-[#F7ECE9] py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-[#F7ECE9] py-16 lg:py-24 relative overflow-hidden">
+      {/* Background Image Overlay - Mobile */}
+      <div 
+        className="absolute inset-0 opacity-15 rotate-[270deg] lg:hidden"
+        style={{
+          backgroundImage: `radial-gradient(circle 200px at 50% 50%, url('https://im8health.com/cdn/shop/files/mobile_comparison-pill_2x_6cee01aa-3c78-4fa8-89f6-0c9d6ed725cb.png?v=1730719345&width=750'), transparent 70%)`,
+          backgroundSize: '400px 400px',
+          backgroundPosition: '50% 50%',
+          backgroundRepeat: 'no-repeat'
+        }}
+      ></div>
+      
+      {/* Background Image Overlay - Desktop */}
+      <div 
+        className="absolute inset-0 opacity-15 rotate-[270deg] hidden lg:block"
+        style={{
+          backgroundImage: `radial-gradient(circle 300px at 35% 50%, url('https://im8health.com/cdn/shop/files/desktop_comparison-pill_2x_0da77b74-6605-4244-8e13-4c0e828ceb71.png?v=1730719244&width=1296'), transparent 70%)`,
+          backgroundSize: '700px 600px',
+          backgroundPosition: '50% -70%',
+          backgroundRepeat: 'no-repeat'
+        }}
+      ></div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* MOBILE LAYOUT */}
         <div className="lg:hidden">
           {/* Mobile Card Container */}
