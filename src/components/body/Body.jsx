@@ -12,6 +12,7 @@ import GetStartedIM8 from "./getstarted/GetStartedIM8";
 import AmbassadorsSection from "./ambassador/AmbassadorsSection";
 import ExpertsSection from "./experts/ExpertsSection";
 import BeckhamComparison from "./beckhamcomparison/BeckhamComparison";
+import PremiumCoreNutrition from "./premiumcorenutrition/PremiumCoreNutrition";
 
 export default function Body() {
   return (
@@ -30,6 +31,7 @@ export default function Body() {
       <AmbassadorsSection />
       <ExpertsSection />
       <BeckhamComparison />
+      <PremiumCoreNutrition />
     </main>
   );
 }
