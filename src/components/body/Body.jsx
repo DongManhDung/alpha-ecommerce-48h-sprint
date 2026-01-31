@@ -8,6 +8,7 @@ import Pillars from "./pillar/Pillars";
 import TrustedExperts from "./trustexpert/TrustedExperts";
 import WhatsInsideBanner from "./whatinside/WhatsInsideBanner";
 import HowToEnjoy from "./howtoenjoy/HowToEnjoy";
+import GetStartedIM8 from "./getstarted/GetStartedIM8";
 
 export default function Body() {
   return (
@@ -22,6 +23,7 @@ export default function Body() {
       <TrustedExperts />
       <WhatsInsideBanner />
       <HowToEnjoy />
+      <GetStartedIM8 />
     </main>
   );
 }
